@@ -12,6 +12,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var CaseSensitiveEnabled bool
+
 // palindromeCmd represents the palindrome command
 var palindromeCmd = &cobra.Command{
 	Use: "palindrome",
@@ -53,4 +55,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// palindromeCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	palindromeCmd.Flags().BoolVarP(&CaseSensitiveEnabled, "case-sensitive", "c", false, "Run functions as case-sensitive.")
 }
