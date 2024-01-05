@@ -4,6 +4,7 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"regexp"
@@ -35,7 +36,10 @@ and usage of using your command. For example:
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
+		if format != "" && (len(format) < shortest || len(format) > longest) {
+			return errors.New("format is not matching with shortest or longest")
+		}
 		result := words.SearchPossibleWords(args[0])
 		if len(result) > 0 {
 			for _, word := range result {
@@ -47,7 +51,7 @@ to quickly create a Cobra application.`,
 		} else {
 			fmt.Println("No words found.")
 		}
-
+		return nil
 	},
 }
 
