@@ -29,13 +29,10 @@ var searchCmd = &cobra.Command{
 		}
 		return nil
 	},
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Search words for given letters",
+	Long: `Search words for given letters and optionally given size constraints and/or format.
+Example (search words, that can be written with letters 'act', has min and max size of 3, and has letter 'a' in the middle. Returns: cat):
+  words search act -s 3 -l 3 -f .a.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if format != "" && (len(format) < shortest || len(format) > longest) {
 			return errors.New("format is not matching with shortest or longest")
