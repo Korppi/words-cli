@@ -8,9 +8,9 @@ import (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "Words-cli",
+	Use:   "words",
 	Short: "Helps with common tasks with text.",
-	Long:  `Words-cli allows you to do some commong task with texts, like reverse, check for palindrome, check for anagram etc.`,
+	Long:  `words allows you to do some commong task with texts, like reverse, check for palindrome, check for anagram etc.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
