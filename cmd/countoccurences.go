@@ -16,7 +16,7 @@ var countoccurencesCmd = &cobra.Command{
 	Use:   "countoccurences",
 	Short: "Count occurences of text a in text b",
 	Args: func(cmd *cobra.Command, args []string) error {
-		if len(args) < 2 {
+		if len(args) != 2 {
 			cmd.Help()
 			os.Exit(0)
 		}
